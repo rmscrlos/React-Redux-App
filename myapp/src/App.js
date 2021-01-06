@@ -1,10 +1,10 @@
 import './App.css';
-import AppInput from './components/AppForm';
 
 //components
 import AppTitle from './components/AppTitle';
 import InfoContainer from './components/InfoContainer';
 import AppForm from './components/AppForm';
+import AppHistoryList from './components/AppHistoryList';
 
 function App() {
 	return (
@@ -16,6 +16,7 @@ function App() {
 					<AppForm />
 				</div>
 				<InfoContainer />
+				<AppHistoryList />
 			</div>
 		</div>
 	);

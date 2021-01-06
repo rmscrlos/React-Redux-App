@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { fetchCoins } from '../actions';
 
+function InfoContainer({ fetchCoins, coin, state }) {
+	useEffect(() => {
+		fetchCoins();
+	}, []);
+
+	return (
+		<Container>
+			<Top>
+				<Rank>#{coin.rank}</Rank>
+				<Symbol>{coin.symbol}</Symbol>
+			</Top>
+			<Line></Line>
+			<Bottom>
+				<Name>{coin.name}</Name>
+				<Name>_</Name>
+				<Price>{coin.price}</Price>
+			</Bottom>
+		</Container>
+	);
+}
 const Container = styled.div`
 	margin-left: 20px;
 	background: linear-gradient(#fff, pink 40%);
@@ -45,7 +67,7 @@ const Name = styled.h1`
 	color: #fff;
 `;
 
-const Price = styled.h1`
+const Price = styled.h2`
 	font-size: 1.5rem;
 	color: #fff;
 	/* margin-left: 0.6rem; */
@@ -58,21 +80,13 @@ const Line = styled.div`
 	width: 43%;
 `;
 
-function InfoContainer(props) {
-	return (
-		<Container>
-			<Top>
-				<Rank>#1</Rank>
-				<Symbol>BTC</Symbol>
-			</Top>
-			<Line></Line>
-			<Bottom>
-				<Name>Bitcoin</Name>
-				<Name>_</Name>
-				<Price> $1,000</Price>
-			</Bottom>
-		</Container>
-	);
-}
+const mapStateToProps = state => {
+	return {
+		state,
+		coin: state.coin
+	};
+};
 
-export default InfoContainer;
+const mapDispatchToProps = { fetchCoins };
+
+export default connect(mapStateToProps, mapDispatchToProps)(InfoContainer);
