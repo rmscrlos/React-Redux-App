@@ -34,7 +34,6 @@ const Coin = styled.h1`
 `;
 
 function AppHistoryList({ history, selectCoin }) {
-	console.log(selectCoin);
 	return (
 		<Container>
 			{history.map(coin => (

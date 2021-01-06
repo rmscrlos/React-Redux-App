@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchCoins } from '../actions';
 
-function InfoContainer({ fetchCoins, coin, state }) {
+function InfoContainer({ fetchCoins, coin }) {
 	useEffect(() => {
 		fetchCoins();
 	}, []);

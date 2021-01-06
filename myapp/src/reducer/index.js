@@ -1,5 +1,3 @@
-import { addCoin } from '../actions';
-
 const initialState = {
 	isFetching: false,
 	error: '',
