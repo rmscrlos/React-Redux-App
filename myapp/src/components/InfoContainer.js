@@ -6,7 +6,7 @@ import { fetchCoins } from '../actions';
 function InfoContainer({ fetchCoins, coin }) {
 	useEffect(() => {
 		fetchCoins();
-	}, []);
+	}, [fetchCoins]);
 
 	return (
 		<Container>
